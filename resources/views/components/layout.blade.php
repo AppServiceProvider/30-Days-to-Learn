@@ -7,10 +7,12 @@
     </head>
     <body>
         <nav>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/contract">Contract</a>
+            <x-nav-link href="/">Home</x-nav-link>
+            <x-nav-link href="/about">About</x-nav-link>
+            <x-nav-link href="/contract">Contract</x-nav-link>
         </nav>
+        
         <?php echo $slot ?>
+        {{ $slot}}
     </body>
 </html>
