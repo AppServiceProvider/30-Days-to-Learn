@@ -1,3 +1,5 @@
 <x-layout>
-    <h1>Contract</h1>
+    <x-slot:heading>
+        Contract Page
+    </x-slot:heading>
 </x-layout>
