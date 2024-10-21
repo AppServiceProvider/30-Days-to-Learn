@@ -19,7 +19,8 @@
                 <div class="ml-10 flex items-baseline space-x-4">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                     <a href="/" class="{{request()->is('/') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}" aria-current="page">Home</a>
-                    <a href="/about" class="{{request()->is('about') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">About</a>
+                    {{-- <a href="/about" class="{{request()->is('about') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">About</a> --}}
+                    <a href="/jobs" class="{{request()->is('jobs') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">Jobs</a>
                     <a href="/contract" class="{{request()->is('contract') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">Contract</a>
                 </div>
                 </div>
