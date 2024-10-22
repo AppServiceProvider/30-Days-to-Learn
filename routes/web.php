@@ -55,6 +55,9 @@ Route::get('/jobs/{id}', function ($id) {
         return $job['id'] == $id;
     });
     
+    if (!$job) {
+        abort(404, 'Job not found');
+    }
     return view('job', ['job' => $job]);
 });
 
