@@ -18,13 +18,7 @@ Route::get('/jobs', function () {
 
 Route::get('/jobs/{id}', function ($id){
     // $job = Arr::first($jobs, fn($job) => $job['id'] == $id);
-    $job = Arr::first(Job::all(), function($job) use ($id) {
-        return $job['id'] == $id;
-    });
-    
-    if (!$job) {
-        abort(404, 'Job not found');
-    }
+    $job= Job::find($id);
     return view('job', ['job' => $job]);
 });
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Support\Arr;
 
 class Job{
     static function all(): array{
@@ -22,4 +23,16 @@ class Job{
            ]
           ];
    }
+
+   static function find($id){
+    $job = Arr::first(static::all(), function($job) use ($id) {
+        return $job['id'] == $id;
+    });
+    
+    if (!$job) {
+        abort(404);
+    }
+    return $job;
+   }
+
 }
