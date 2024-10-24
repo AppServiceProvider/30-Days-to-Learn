@@ -1,24 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
-
-    $jobs =[
-            [
-                'id' => 1,
-                'title'=> 'Director',
-                'salary'=> '500000'
-            ],
-            [
-                'id' => 2,
-                'title'=> 'CEO',
-                'salary'=> '100000'
-            ],
-            [
-                'id' => 3,
-                'title'=> 'staff',
-                'salary'=> '10000'
-            ]
-           ];
+use App\Models\Job;
         
 
 Route::get('/', function () {
@@ -28,14 +11,14 @@ Route::get('/', function () {
 );
 });
 
-Route::get('/jobs', function () use($jobs){
-    return view('jobs',['jobs'=> $jobs]);
+Route::get('/jobs', function () {
+    return view('jobs',['jobs'=> Job::all()]);
 });
 
 
-Route::get('/jobs/{id}', function ($id) use($jobs){
+Route::get('/jobs/{id}', function ($id){
     // $job = Arr::first($jobs, fn($job) => $job['id'] == $id);
-    $job = Arr::first($jobs, function($job) use ($id) {
+    $job = Arr::first(Job::all(), function($job) use ($id) {
         return $job['id'] == $id;
     });
     
