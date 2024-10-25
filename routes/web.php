@@ -5,10 +5,13 @@ use App\Models\Job;
         
 
 Route::get('/', function () {
-    return view('home',[
-        'name'=> 'app service provider'
-    ],
-);
+//     return view('home',[
+//         'name'=> 'app service provider'
+//     ],
+// );
+
+    $jobs= Job::all();
+    dd($jobs[0]->title);
 });
 
 Route::get('/jobs', function () {
