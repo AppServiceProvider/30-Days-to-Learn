@@ -32,7 +32,7 @@
             </tbody>
         </table>
         
-        {{-- <a href="{{ route('invoices.download') }}" class="btn btn-primary mt-3">Download PDF</a> --}}
+        <a href="{{ route('invoices.download') }}" class="btn btn-primary mt-3">Download PDF</a>
     </div>
 </body>
 </html>
