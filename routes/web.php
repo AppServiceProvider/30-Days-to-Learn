@@ -38,8 +38,8 @@ Route::get('/contract', function () {
 Route::get('/jobListing', function () {
 
     // $jobListings= JobListing::all();
-    $jobListings= JobListing::with('employer')->get();
-    
+    $jobListings= JobListing::with('employer')->simplePaginate(3);
+
     return view('jobListing',['jobListings'=> $jobListings]);
 
 });

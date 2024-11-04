@@ -34,5 +34,7 @@
             @endforeach
         </tbody>
     </table>
-
+    <div>
+        {{ $jobListings->links() }}
+    </div>
 </x-layout>
