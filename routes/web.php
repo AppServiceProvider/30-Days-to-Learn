@@ -36,8 +36,11 @@ Route::get('/contract', function () {
 
 
 Route::get('/jobListing', function () {
+
+    // $jobListings= JobListing::all();
+    $jobListings= JobListing::with('employer')->get();
     
-    return view('jobListing',['jobListings'=> JobListing::all()]);
+    return view('jobListing',['jobListings'=> $jobListings]);
 
 });
 
