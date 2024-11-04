@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class JobListing extends Model
 {
     use HasFactory;
-    protected $table = 'jobs'; // Link this model to the job_listings table
+    protected $table= "job_listings";
+
+    public function employer(){
+        return $this->belongsTo(Employer::class);
+    }
 
 }
