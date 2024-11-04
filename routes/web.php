@@ -35,13 +35,6 @@ Route::get('/contract', function () {
 });
 
 
-Route::get('/aaa', function () {
-    
-    return view('aaa',['aaa'=> Job::with('employer')->get()]);
-
-});
-
-
 Route::get('/jobListing', function () {
     
     return view('jobListing',['jobListings'=> JobListing::all()]);
