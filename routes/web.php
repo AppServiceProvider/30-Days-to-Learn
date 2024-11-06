@@ -38,7 +38,7 @@ Route::get('/contract', function () {
 Route::get('/jobListing', function () {
 
     // $jobListings= JobListing::all();
-    $jobListings= JobListing::with('employer')->simplePaginate(3);
+    $jobListings= JobListing::with('employer')->simplePaginate(20);
 
     return view('jobListing',['jobListings'=> $jobListings]);
 
@@ -54,3 +54,16 @@ Route::get('/jobListing/{id}', function ($id) {
     return view('employer', ['emp' => $emp]);
 });
 
+Route::get('/employer', function(){
+    // dd('hellow world');
+    return view('jobCreate');
+});
+
+Route::post('/employer', function(){
+    // dd('hellow world');
+    // return view('jobCreate');
+    // dd(request()->all());
+
+    dd(request('title'));
+
+});
