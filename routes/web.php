@@ -5,6 +5,39 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
 use App\Models\Job;
 use App\Models\JobListing;
+use Illuminate\Http\Request;
+
+
+Route::get('employers/create', function () {
+    return view('create');
+})->name('employers.index');
+
+
+// Define the POST route for storing a new employer
+Route::post('/employers', function (Request $request) {
+    // Create the employer
+    Employer::create([
+        'name' => $request->input('name'),
+    ]);
+    return redirect()->back();
+})->name('employers.store');
+
+
+
+
+
+
+
+
+// routes/web.php
+Route::delete('/employers/{id}', function ($id) {
+    Employer::findOrFail($id)->delete();
+    return redirect()->back()->with('success', 'Employer deleted successfully');
+})->name('employers.destroy');
+
+
+
+
 
 Route::get('/', function () {
 //     return view('home',[
@@ -54,16 +87,32 @@ Route::get('/jobListing/{id}', function ($id) {
     return view('employer', ['emp' => $emp]);
 });
 
-Route::get('/employer', function(){
-    // dd('hellow world');
-    return view('jobCreate');
+
+
+// Display all employers or a single employer
+Route::get('/employers/{id?}', function($id = null) {
+    if ($id) {
+        $employer = Employer::find($id);
+        return view('employers', ['employer' => $employer]);
+    } else {
+        $employers = Employer::all();
+        return view('employers', ['employers' => $employers]);
+    }
 });
 
-Route::post('/employer', function(){
-    // dd('hellow world');
-    // return view('jobCreate');
-    // dd(request()->all());
 
-    dd(request('title'));
 
+
+
+Route::post('/employers/{id}/update', function(Request $request, $id) {
+
+        // Find the employer by id and update their name
+        $employer = Employer::findOrFail($id);
+        $employer->name = $request->input('name');
+        $employer->save();
+        // return redirect()->route('employers.employers', $id)->with('status', 'Employer details updated successfully!');
+
+           // Redirect back to the employer's details page or to the employers list with a success message
+           return redirect()->back();
 });
+

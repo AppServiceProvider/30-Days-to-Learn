@@ -22,7 +22,9 @@
                     {{-- <a href="/about" class="{{request()->is('about') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">About</a> --}}
                     <a href="/jobs" class="{{request()->is('jobs') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">Jobs</a>
                     <a href="/jobListing" class="{{request()->is('job_listing') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">Job Listing</a>
-                    <a href="/contract" class="{{request()->is('contract') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">Contract</a>
+                    <a href="/contract" class="{{request()->is('contract') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">Contract</a> employers
+                    <a href="/employers" class="{{request()->is('employers') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">employers</a>
+
                 </div>
                 </div>
             </div>
