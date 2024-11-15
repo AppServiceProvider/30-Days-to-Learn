@@ -3,7 +3,7 @@
 use App\Models\Employer;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
-use App\Models\Job;
+use App\Models\{Job,Post};
 use App\Models\JobListing;
 use Illuminate\Http\Request;
 
@@ -116,3 +116,23 @@ Route::post('/employers/{id}/update', function(Request $request, $id) {
            return redirect()->back();
 });
 
+
+
+//============================ Post Model 
+Route::get('/posts', function(){
+    $posts = Post::with('tags')->get();  // Eager load the tags relationship
+
+
+    // $posts = Post::with('tags')->find(2);
+    // dd($posts);  // Dump the posts along with their tags
+
+    return view('posts.posts',['posts'=>$posts]);
+});
+
+Route::get('/posts/{id}', function($id){
+        // Find the post by its ID and eager load the tags relationship
+        $posts = Post::with('tags')->findOrFail($id);
+
+        // Return the view and pass the post data
+        return view('posts.show', ['post' => $posts]);
+});

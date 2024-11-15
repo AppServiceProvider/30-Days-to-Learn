@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+
+
+
+Route::get('/posts', function() {
+    // Eager load the 'tags' relationship to fetch related tags with each post
+    $posts = Post::with('tags')->get();  // Get all posts with their related tags
+
+    // Return the posts as a JSON response
+    return response()->json($posts);
+});
+

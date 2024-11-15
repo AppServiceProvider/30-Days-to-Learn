@@ -24,6 +24,8 @@
                     <a href="/jobListing" class="{{request()->is('job_listing') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">Job Listing</a>
                     <a href="/contract" class="{{request()->is('contract') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">Contract</a> employers
                     <a href="/employers" class="{{request()->is('employers') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">employers</a>
+                    <a href="/posts" class="{{request()->is('employers') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">Posts</a>
+
 
                 </div>
                 </div>
