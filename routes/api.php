@@ -3,32 +3,14 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Http\Controllers\PhotoController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// GET|HEAD        api/photos ......................................................... photos.index › PhotoController@index
+//   POST            api/photos ......................................................... photos.store › PhotoController@store
+//   GET|HEAD        api/photos/{photo} ................................................... photos.show › PhotoController@show
+//   PUT|PATCH       api/photos/{photo} ............................................... photos.update › PhotoController@update
+//   DELETE          api/photos/{photo} ............................................. photos.destroy › PhotoController@destroy
 
 
-
-
-
-
-Route::get('/posts', function() {
-    // Eager load the 'tags' relationship to fetch related tags with each post
-    $posts = Post::with('tags')->get();  // Get all posts with their related tags
-
-    // Return the posts as a JSON response
-    return response()->json($posts);
-});
-
+// Define API resource routes for photos
+Route::apiResource('photos', PhotoController::class);
